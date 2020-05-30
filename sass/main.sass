@@ -1,0 +1,754 @@
+$royalAcid: "RoyalAcid", serif
+$roboto: "Roboto", sans-serif
+    
+body
+    margin: 0
+    padding: 0
+    font-size: 16px
+    line-height: 1.25
+    font-family: "Montserrat Alternates", sans-serif
+    color: #ffffff
+
+*,
+*::after, 
+*::before
+    box-sizing: border-box
+
+h1, h2, h3, h4, h5, h6, p, ul, li
+    margin: 0
+    padding: 0
+
+
+a
+    color: inherit
+    text-decoration: none
+    transition: color .1s linear
+
+button
+    cursor: pointer
+    transition: color .14s linear
+
+.corners
+    position: relative
+
+    &-top
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+        &::after
+            content: ""
+            position: absolute
+            width: 67px
+            height: 67px
+            top: -2px
+            right: -2px
+            background: url('../img/corner.png') no-repeat center/cover
+            transform: rotate(180deg)
+        &::before
+            content: ""
+            position: absolute
+            width: 67px
+            height: 67px
+            top: -2px
+            left: -2px
+            background: url('../img/corner.png') no-repeat center/cover
+            transform: rotate(90deg)
+    &-bottom
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        &::after
+            content: ""
+            position: absolute
+            width: 67px
+            height: 67px
+            bottom: -2px
+            right: -2px
+            background: url('../img/corner.png') no-repeat center/cover
+            transform: rotate(-90deg)
+        &::before
+            content: ""
+            position: absolute
+            width: 67px
+            height: 67px
+            bottom: -2px
+            left: -2px
+            background: url('../img/corner.png') no-repeat center/cover
+            transform: rotate(0)
+
+
+.wrapper
+    display: flex
+    overflow: hidden
+    height: 100vh
+    &-hid  // что бы в Datenschutzhinweis все отображалось правильно (ткк там много текста нужен скролл)
+        overflow: scroll
+        overflow-x: hidden
+
+
+// aside
+.aside
+    width: 25.62225%
+    min-width: 320px
+    max-width: 350px
+    padding: 2px
+    background: rgb(125,84,20)
+    background: linear-gradient(90deg, rgba(125,84,20,1) 0%, rgba(255,244,211,1) 100%)
+    &-fix // что бы в Datenschutzhinweis все отображалось правильно
+        position: fixed
+        left: 0
+        top: 0
+
+
+    &__inner
+        padding-top: 195px
+        padding-bottom: 50px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: space-between
+        width: 100%
+        height: 100%
+        position: relative
+        background: url('../img/aside-bg.jpg')
+
+
+    &__logo
+        position: relative
+        &::after
+            content: ""
+            position: absolute
+            width: 139px
+            height: 150px
+            left: 50%
+            transform: translateX(-50%)
+            bottom: 140%
+            background: url('../img/aside-crown.png') no-repeat center/cover
+
+        img
+            display: block
+
+    &__nav
+        margin-bottom: 150px
+        width: 100%
+        &-link
+            display: block
+            text-align: center
+            height: 40px;
+            line-height: 40px;
+            font-size: 18px
+            letter-spacing: 3px
+            &.active
+                color: #000000
+                background: rgb(112,69,17)
+                background: linear-gradient(90deg, rgba(112,69,17,1) 0%, rgba(198,164,61,1) 20%, rgba(229,207,130,1) 50%, rgba(248,234,190,1) 74%, rgba(255,245,213,1) 100%)
+            &:hover
+                color: #000000
+                background: rgb(112,69,17)
+                background: linear-gradient(90deg, rgba(112,69,17,1) 0%, rgba(198,164,61,1) 20%, rgba(229,207,130,1) 50%, rgba(248,234,190,1) 74%, rgba(255,245,213,1) 100%)
+
+    &__copyright
+        font-size: 12px
+        color: #a5a5a5
+        font-weight: 500
+        max-width: 271px
+        text-align: center
+        letter-spacing: 1px
+
+// /aside
+    
+// main-section
+.main-section
+    width: 100%
+    &::after
+        content: ""
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        width: 40%
+        background: rgb(255,255,255)
+        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.77) 100%)
+
+    &__carousel
+        // height: 60vh
+        height: 100%
+        width: 100%
+        position: relative
+        .slick-list,
+        .slick-track
+            height: 100%
+
+        &-item
+            height: 100%
+            background: url('../img/aside-bg.jpg')
+        &-pic
+            height: 100%
+            position: relative
+            height: 100%
+            img
+                position: absolute
+                min-width: 100% // Убирает черную полосу
+                height: 100%
+                top: 0
+                left: 0
+
+        &-buttons
+            position: absolute
+            top: 50%
+            right: 10px
+            z-index: 2
+            transform: translateY(-50%)
+
+        &-next,
+        &-prev
+            position: absolute
+            width: 50%
+            bottom: 0
+            top: 0
+            cursor: pointer
+            background-color: transparent
+            border: 0
+            border-radius: 0
+            outline: none
+
+        &-next
+            right: 0
+        
+        &-prev
+            left: 0
+
+// /main-section
+
+// models-section
+.models-section
+    width: 100%
+    background: url('../img/models-bg.jpg') no-repeat center/cover
+    padding: 20px 46px 0
+    overflow-y: auto
+
+    &::-webkit-scrollbar-track
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9)
+        border-radius: 10px
+        background-color: #000000
+
+
+    &::-webkit-scrollbar
+        width: 12px
+        background-color: #F5F5F5
+
+
+    &::-webkit-scrollbar-thumb
+
+        border-radius: 10px
+        background-color: #D62929
+        background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent)
+
+    &__wrapper
+        display: flex
+        flex-wrap: wrap
+
+    &__title
+        display: flex
+        justify-content: center
+        margin-bottom: 25px
+
+        span
+            font-size: 36px
+            font-weight: 700
+            letter-spacing: 10px
+            text-align: center
+
+            background: rgb(243,187,51)
+            background: linear-gradient(90deg, rgba(243,187,51,1) 0%, rgba(255,243,186,1) 44%, rgba(243,187,51,1) 100%)
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+
+    &__item
+        padding: 6px
+        background: rgb(243,187,51)
+        background: linear-gradient(90deg, rgba(243,187,51,1) 0%, rgba(255,243,186,1) 44%, rgba(243,187,51,1) 100%)
+        margin: 0 30px 60px
+        cursor: pointer
+        display: block
+        transition: transform .33s ease-in-out, box-shadow .33s linear
+        &:hover
+            transform: translate(-10px, -10px)
+            box-shadow: 25px 25px 30px rgba(#000000, .7)
+
+            .models-section__item-photo img
+                transform: scale(1.5)
+
+            
+        &-header
+            padding: 16px 0
+            text-align: center
+
+        &-name
+            color: #000000
+            font-size: 24px
+            font-family: $royalAcid
+            letter-spacing: 5px
+        &-photo
+            width: 100%
+            max-width: 259px
+            overflow: hidden
+            img
+                width: 100%
+                height: auto
+                display: block
+                transition: transform .22s ease-in-out
+
+        &-footer
+            display: flex
+            justify-content: center
+            align-items: center
+            background-color: #0c0c0c
+            padding: 10px 0
+
+
+
+// /models-section
+
+// girl-card
+.girl-card
+    position: fixed
+    z-index: 500
+    right: 20px
+    top: 20px
+    bottom: 20px
+    width: calc(100% - 380px)
+    background: rgb(243,187,51)
+    background: linear-gradient(90deg, rgba(243,187,51,1) 0%, rgba(255,243,186,1) 44%, rgba(243,187,51,1) 100%)
+    padding: 4px
+    color: #ffffff
+    display: none
+    &.show
+        display: block
+
+    &__close
+        position: absolute
+        width: 28px
+        height: 28px
+        background: rgb(243,187,51)
+        background: linear-gradient(90deg, rgba(243,187,51,1) 0%, rgba(255,243,186,1) 44%, rgba(243,187,51,1) 100%)
+        border-radius: 50px
+        right: -14px
+        top: -14px
+        cursor: pointer
+        &::after
+            content: ""
+            width: 18px
+            height: 18px
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            background: url('../img/modal-close.png') no-repeat center/cover
+
+    &__inner
+        background-color: #000000
+        border-radius: 4px
+        padding: 13px
+        display: flex
+        height: 100%
+        overflow-y: auto
+
+        &::-webkit-scrollbar-track
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9)
+            border-radius: 10px
+            background-color: #000000
+
+
+        &::-webkit-scrollbar
+            width: 12px
+            background-color: #F5F5F5
+
+
+        &::-webkit-scrollbar-thumb
+
+            border-radius: 10px
+            background-color: #D62929
+            background-image: -webkit-linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.4) 50%, transparent, transparent)
+        
+    &__photos
+        display: flex
+        min-width: 390px
+        width: 390px
+        flex-wrap: wrap
+        height: 747px
+    &__photo
+        width: 180px
+        margin-bottom: 13px
+        height: 236px
+        margin-right: 13px
+        img
+            display: block
+            width: 100%
+
+    &__text
+        display: flex
+        flex-direction: column
+        align-items: center
+        width: 100%
+
+    &__name
+        display: block
+        margin-bottom: 30px
+        font-size: 36px
+        background: rgb(243,187,51)
+        background: linear-gradient(90deg, rgba(243,187,51,1) 0%, rgba(255,243,186,1) 44%, rgba(243,187,51,1) 100%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+        letter-spacing: 10px
+        font-weight: 700
+
+    &__subtitle
+        font-family: $roboto
+        font-size: 30px
+        margin-bottom: 5px
+        text-align: center
+
+    &__info
+        width: 100%
+        font-family: $roboto
+        margin-bottom: 40px
+        padding: 0 15px
+        &-line
+            display: flex
+            justify-content: space-between
+            align-items: center
+            width: 100%
+            margin-bottom: 8px
+            font-size: 24px
+            span
+                background: rgb(243,187,51)
+                background: linear-gradient(90deg, rgba(243,187,51,1) 0%, rgba(255,243,186,1) 44%, rgba(243,187,51,1) 100%)
+                -webkit-background-clip: text
+                -webkit-text-fill-color: transparent
+            strong
+                font-weight: 400
+
+        &-title
+            font-size: 30px
+            font-weight: 700
+            margin-bottom: 15px
+
+        &-text
+            padding: 0 15px
+            font-size: 18px
+            line-height: 1.5
+            margin-bottom: 30px
+
+// /girl-card
+
+// gallery-section
+.gallery-section
+    width: 100%
+    background: url('../img/gallery/gallery-bg.jpg') no-repeat center/cover
+    padding: 33px 20px
+    overflow-y: auto
+    display: flex
+    justify-content: center
+    &__inner
+        display: flex
+        flex-wrap: wrap
+
+    &__item
+        width: 100%
+        
+        &-outer
+            outline: none
+            padding-right: 26px
+            width: 33.3333%
+            min-width: 300px
+            max-width: 383px
+        &-title
+            height: 66px
+            margin-bottom: 10px
+            text-align: center
+            font-weight: 700
+            letter-spacing: 5px
+            font-size: 24px
+            display: flex
+            align-items: center
+            justify-content: center
+            span
+                background: rgb(243,187,51)
+                background: linear-gradient(90deg, rgba(243,187,51,1) 0%, rgba(255,243,186,1) 44%, rgba(243,187,51,1) 100%)
+                -webkit-background-clip: text
+                -webkit-text-fill-color: transparent
+
+        &-wrapper
+            padding: 4px
+            background: rgb(243,187,51)
+            background: linear-gradient(135deg, rgba(243,187,51,1) 0%, rgba(255,243,186,1) 44%, rgba(243,187,51,1) 100%)
+            img
+                width: 100%
+                height: auto
+                display: block
+
+
+    
+
+// /gallery-section
+
+//Datenschutzhinweis 
+.datenschutzh-section 
+    margin-left: 29%
+    padding: 50px 0px 50px 0px;
+    &__title 
+        margin-top: 10px
+        color: #222
+        font-size: 32px
+        margin-bottom: 25px
+    &__subtitle 
+        color: #222
+        font-weight: 400
+        font-size: 25px
+        margin-bottom: 25px
+    &__text 
+        color: #777;
+        font-size: 20px
+        margin-bottom: 20px
+    &__list 
+        display: flex
+        flex-direction: column
+        list-style-type: none
+    &__item 
+        margin: 8px 0px
+        color: #d6a059;
+        font-size: 18px 
+    &__contact 
+        display: flex
+        flex-direction: column
+        color: #222
+        span 
+            font-weight: bold
+            margin: 5px 0px
+            a 
+                font-weight: normal
+                color: #666;
+                margin-left: 5px
+    h3 
+        color: #222;
+    a 
+        color: #d6a059;
+    ul 
+        display: flex
+        flex-direction: column
+        list-style-type: none
+        margin-bottom: 20px
+        ul 
+            margin-left: 50px
+        li 
+            margin: 6px 0px
+            color: #777777
+            font-size: 18px
+            span 
+                font-weight: bold
+    .t2 
+        margin-top: 20px
+//Datenschutzhinweis 
+
+// Impressum
+.impressum-section
+    padding: 50px 0px 50px 0px;
+    margin-left: 370px
+    &__title 
+        color: #222
+        font-size: 32px
+        margin-bottom: 25px
+    ul 
+        list-style-type: none
+        margin-bottom: 30px
+        li 
+            margin: 7px 0px
+            color: #777
+            font-size: 18px
+            span
+                margin-bottom: 10px
+                margin-top: 10px
+                color: #666;
+                font-weight: bold
+
+
+.wrapper-bg 
+    background: url('../img/gallery/gallery-bg.jpg') no-repeat center/cover
+.bar-section
+    margin-left: 346px
+
+    width: 74.4%
+    display: flex
+    padding: 0px 100px
+    justify-content: center
+    align-items: center
+.bar-slider 
+    width: 100%
+.bar-item 
+    display: flex!important
+    justify-content: center
+    align-items: center
+    width: 100%
+
+.slick-next
+
+.slick-prev 
+
+
+.bar-gallery 
+    display: flex
+    justify-content: space-around
+    flex-wrap: wrap-reverse
+    align-items: center
+    background: transparent
+    &__item 
+        max-width: 300px
+        img
+            width: 100%
+
+// Impressum
+
+
+// .bar-section 
+//     background: url('../img/gallery/gallery-bg.jpg') no-repeat center/cover
+
+
+
+// media 1200
+    
+@media screen and ( max-width: 1200px )
+    // .impressum-section
+    //     margin-left: 35%
+
+    .girl-card
+        width: calc(100% - 340px)
+
+    .models-section__item-name
+        position: relative
+        z-index: 5
+
+// media 1030
+@media screen and ( max-width: 1030px )
+    .bar-section 
+        padding: 0px 40px
+    .main-section__carousel-pic img // возвращает все назад для красоты
+        width: auto
+    .girl-card
+        width: calc(100% - 40px)
+
+    .girl-card__info-text
+        font-size: 14px
+
+    .girl-card__info-line
+        font-size: 18px
+
+    .girl-card__info-title
+        font-size: 24px
+
+    .girl-card__photos
+        width: 300px
+        min-width: 300px
+
+    .girl-card__photo
+        width: 130px
+        height: auto
+
+@media screen and ( max-width: 992px )
+    .bar-slider  
+        display: none!important
+    // .impressum-section
+    //     margin-left: 40%
+
+
+// media 768
+@media screen and ( max-width: 768px )
+    .girl-card__inner
+        flex-direction: column
+
+    .girl-card__photos
+        width: 100%
+
+    .girl-card__photo
+        width: calc(20% - 13px)
+
+// media 600
+@media screen and ( max-width: 600px )
+    .impressum-section
+        margin-left: 245px
+        ul 
+            li 
+                font-size: 16px
+    // 
+    .main-section::after
+        display: none
+
+    .models-section
+        padding: 20px 15px 0
+
+    .models-section__item
+        margin: 0 0 30px
+
+    .aside
+        min-width: 240px
+        max-width: 240px
+
+    .aside__logo::after
+        width: 59px
+        height: 64px
+
+    .aside__inner
+        padding-top: 95px
+
+    .aside__logo img
+        width: 100%
+        height: auto
+
+    .aside__nav
+        margin-bottom:  30px
+
+    .gallery-section__item-outer
+        width: 100%
+        min-width: unset
+        max-width: unset
+        padding-right: 0
+
+    .gallery-section__inner
+        width: 100%
+
+    .gallery-section
+        padding: 33px 15px
+
+
+// media 480
+@media screen and ( max-width: 480px )
+    .girl-card__photo
+        width: calc(33% - 13px)
+        margin: 0 6px 12px
+    
+    
+// media 430
+@media screen and ( max-width: 430px )
+    // 
+    .aside
+        min-width: 100px
+        max-width: 100px
+
+    .aside__nav-link
+        display: flex
+        line-height: 1.25
+        align-items: center
+        justify-content: center
+        height: auto
+        padding: 16px 0
+        font-size: 12px
+
+// media 400
+@media screen and ( max-width: 400px )
+    .girl-card__info-line
+        flex-direction: column
+
+    .girl-card__info-text
+        padding: 0
