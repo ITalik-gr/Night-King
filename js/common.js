@@ -28,10 +28,10 @@ $('.bar-slider').slick({
 $('.models-section__item').on('click', function() {
     $('.girl-card').addClass('show');
 });
-
 $('.closeGirlCard').on('click', function() {
     $('.girl-card').removeClass('show');
 });
+
 
 
 $('.button').click(function(){
